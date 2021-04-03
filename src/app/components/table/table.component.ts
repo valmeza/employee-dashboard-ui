@@ -1,3 +1,4 @@
+import { EmployeeServiceService } from './../../service/employee-service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
+  employees: Array<any> = new Array;
 
-  constructor() { }
+  constructor(private employeeService: EmployeeServiceService) { }
 
   ngOnInit(): void {
+    this.getEmployees();
+  }
+
+  getEmployees(): void {
+    this.employeeService.getAllEmployees().subscribe((response) => {
+      console.log(response);
+    });
   }
 
 }
