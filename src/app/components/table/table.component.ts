@@ -23,4 +23,8 @@ export class TableComponent implements OnInit {
         this.employees = response;
       });
   }
+
+  onDelete(id: number) {
+    console.log(id);
+  }
 }
