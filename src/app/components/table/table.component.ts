@@ -21,6 +21,7 @@ export class TableComponent implements OnInit {
       .getAllEmployees()
       .subscribe((response: Array<Employee>) => {
         this.employees = response;
+        console.log(this.employees);
       });
   }
 
