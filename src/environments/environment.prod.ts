@@ -1,5 +1,5 @@
 const apiHost =
-  'https://employee-zuul-proxy.herokuapp.com/employee-service/api/employees';
+  'https://employee-zuul-proxy.herokuapp.com/api/employee-service/employees';
 export const environment = {
   production: true,
   url: apiHost,
