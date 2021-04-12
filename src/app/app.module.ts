@@ -7,6 +7,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NavbarLinksComponent } from './components/navbar-links/navbar-links.component';
 import { TableComponent } from './components/table/table.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ButtonComponent } from './components/button/button.component';
+import { AddComponent } from './components/add/add.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     NavbarLinksComponent,
     TableComponent,
+    ButtonComponent,
+    AddComponent,
   ],
   imports: [
     BrowserModule,

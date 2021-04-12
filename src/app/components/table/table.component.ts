@@ -1,6 +1,7 @@
 import { Employee } from './../../model/employee';
 import { EmployeeServiceService } from './../../service/employee-service.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -9,8 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
   employees: Array<any> = new Array();
+  message = 'Click on a button';
+  textAddBtnConfig = {
+    styles: {
+      classes: [
+        'bg-green-500',
+        'hover:bg-green-700',
+        'text-white',
+        'rounded',
+        'p-2',
+        'ml-10',
+        'mt-10',
+      ],
+    },
+    text: 'Add Employee',
+  };
 
-  constructor(private employeeService: EmployeeServiceService) {}
+  constructor(
+    private employeeService: EmployeeServiceService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getEmployees();
@@ -25,7 +44,20 @@ export class TableComponent implements OnInit {
       });
   }
 
-  onDelete(id: number) {
-    console.log(id);
+  // button click events
+  addEmployeeButton(): void {
+    // redirect to
+    // TODO: should redirect to add page
+    this.router.navigate(['/add']);
+  }
+
+  editEmployeeButton(): void {
+    // TODO: should redirect to edit page
+    console.log('Employee edit button clicked');
+  }
+
+  deleteEmployeeButton(id: number): void {
+    // TODO: should delete from table
+    console.log('Employee delete button clicked');
   }
 }
