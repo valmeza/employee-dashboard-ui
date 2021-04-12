@@ -15,8 +15,8 @@ export class AddComponent implements OnInit {
         'text-white',
         'rounded',
         'p-2',
-        'ml-10',
-        'mt-10',
+        'self-center',
+        'mx-36'
       ],
     },
     text: 'Add Employee',
