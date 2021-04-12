@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ButtonComponent implements OnInit {
   // receives correct config from it's parent component
   @Input() buttonConfig: any;
-
+  
   constructor() { }
 
   ngOnInit(): void {
