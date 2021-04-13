@@ -40,14 +40,11 @@ export class TableComponent implements OnInit {
       .getAllEmployees()
       .subscribe((response: Array<Employee>) => {
         this.employees = response;
-        console.log(this.employees);
       });
   }
 
   // button click events
   addEmployeeButton(): void {
-    // redirect to
-    // TODO: should redirect to add page
     this.router.navigate(['/add']);
   }
 

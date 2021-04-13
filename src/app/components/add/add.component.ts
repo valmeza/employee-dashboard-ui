@@ -2,6 +2,7 @@ import { EmployeeServiceService } from './../../service/employee-service.service
 import { Employee } from './../../model/employee';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -20,11 +21,11 @@ export class AddComponent implements OnInit {
         'rounded',
         'p-2',
         'self-center',
-        'mx-36'
+        'mx-36',
       ],
     },
     text: 'Add Employee',
-    type: 'submit'
+    type: 'submit',
   };
 
   employeeForm = new FormGroup({
@@ -33,13 +34,20 @@ export class AddComponent implements OnInit {
     email: new FormControl(''),
   });
 
-  constructor(private employeeService: EmployeeServiceService) {}
+  constructor(
+    private employeeService: EmployeeServiceService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   onSubmit(): void {
     this.newEmployee = this.employeeForm.value;
-    this.employeeService.addNewEmployee(this.newEmployee).subscribe()
+    this.employeeService.addNewEmployee(this.newEmployee).subscribe((response) => {
+      if (response) {
+        this.router.navigate(["/"]);
+      }
+    });
 
   }
 }
