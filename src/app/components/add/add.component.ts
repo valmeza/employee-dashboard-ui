@@ -1,3 +1,5 @@
+import { EmployeeServiceService } from './../../service/employee-service.service';
+import { Employee } from './../../model/employee';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -7,6 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./add.component.scss'],
 })
 export class AddComponent implements OnInit {
+  employees: Employee[] = [];
+  newEmployee?: Employee;
   textAddBtnConfig = {
     styles: {
       classes: [
@@ -29,11 +33,13 @@ export class AddComponent implements OnInit {
     email: new FormControl(''),
   });
 
-  constructor() {}
+  constructor(private employeeService: EmployeeServiceService) {}
 
   ngOnInit(): void { }
 
   onSubmit(): void {
-    console.log(this.employeeForm.value);
+    this.newEmployee = this.employeeForm.value;
+    this.employeeService.addNewEmployee(this.newEmployee).subscribe()
+
   }
 }
