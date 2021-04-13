@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ButtonComponent } from './components/button/button.component';
 import { AddComponent } from './components/add/add.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     TableComponent,
     ButtonComponent,
     AddComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,11 @@ export class EmployeeServiceService {
     return this.http.get<Array<Employee>>(this.url);
   }
 
+  getEmployeeById(id: number): Observable<Employee> {
+    return this.http.get<Employee>(this.url + '/' + id);
+  }
+
   addNewEmployee(employee?: Employee): Observable<Employee> {
-    return this.http.post<Employee>(this.url, employee)
+    return this.http.post<Employee>(this.url, employee);
   }
 }
